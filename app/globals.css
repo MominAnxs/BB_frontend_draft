@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes used throughout the Figma export */
+@layer components {
+  .nav-glass {
+    @apply bg-white/60 backdrop-blur-lg border-b border-gray-200/60;
+  }
+
+  .sidebar-glass {
+    @apply bg-white/60 backdrop-blur-lg border-r border-gray-200/60;
+  }
+
+  /* Sticky sub-header inside modules — matches top nav + left nav surface
+     so content scrolling underneath doesn't leak through. */
+  .subheader-glass {
+    @apply bg-white/60 backdrop-blur-lg border-b border-gray-200/60;
+  }
+
+  .nav-pill {
+    @apply flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-100/80 rounded-lg transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-pill-active {
+    @apply flex items-center gap-2 px-3 py-2 text-sm text-brand bg-brand-light rounded-lg font-medium transition-all duration-200 cursor-pointer;
+  }
+
+  /* Card header strip used by every widget on the Accounts dashboards
+     (GMV Breakdown, Category Spend, Cashflow, etc.). Previously undefined,
+     which let some browser-default tinting leak through as a blueish fill.
+     Explicit white + soft divider keeps the card visually quiet. */
+  .widget-header {
+    @apply bg-white border-b border-gray-100;
+  }
+}
+
+/* Base styles — font is supplied via next/font (see app/layout.tsx) */
+html {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
